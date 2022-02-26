@@ -8,18 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iot Dregs</title>
     <link rel="stylesheet" href="{% static 'website/index.css' %}">
-    <script src="{% static 'website/javascript.js' %}"></script>
 </head>
 <body>
-    <div class="login">
-        <form action="" method="post">
-            {% csrf_token %}
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password">
-            <input type="submit">
-        </form>
-    </div>
-
     <div class="navbar">
         <nav>
             <div class="logo">
@@ -30,7 +20,7 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#description">Project Description</a></li>
                     <li><a href="#team">Contact Us</a></li>
-                    <li><a href="" id="login">LOGIN</a></li>
+                    <li><a href="#user" id="login">LOGIN</a></li>
                 </ul>
             </div>
         </nav>
@@ -105,61 +95,65 @@
         </div>
     </section>
 
-    <section class="user">
+    <section class="user" id="user">
         <div class="login">
-            <form action="{% url 'user' %}" method='post'>
-                {% csrf_token %}
-                <span id="login">Login</span>
-                <div class="username">
-                    <label for="username">Username: </label>
-                    <input type="text" placeholder="Username" name='username' class='text'>
-                </div>
-                <div class="password">
-                    <label for="password">Password: </label>
-                    <input type="password" placeholder="Password" name='password' class='text'>
-                </div>
-                {% if failed_msg %}
-                <span id="invalid">{{ failed_msg }}</span>
-                {% endif %}
-                <input type="submit" id='submit' value='Login'>
-            </form>
+            <div class="box">
+                <form action="{% url 'user' %}" method='post'>
+                    {% csrf_token %}
+                    <span id="login">Login</span>
+                    <div class="username">
+                        <label for="username">Username: </label>
+                        <input type="text" placeholder="Username" name='username' class='text'>
+                    </div>
+                    <div class="password">
+                        <label for="password">Password: </label>
+                        <input type="password" placeholder="Password" name='password' class='text'>
+                    </div>
+                    {% if failed_msg %}
+                    <span id="invalid">{{ failed_msg }}</span>
+                    {% endif %}
+                    <input type="submit" id='submit' value='Login'>
+                </form>
+            </div>
         </div>
         <div class="register">
-            <form action="{% url 'register' %}" method='post'>
-                {% csrf_token %}
-                <span id="login">Register</span>
-                <div class="grid-container">
-                    <div class="label">
-                        First Name: 
+            <div class="box">
+                <form action="{% url 'register' %}" method='post'>
+                    {% csrf_token %}
+                    <span id="login">Register</span>
+                    <div class="grid-container">
+                        <div class="label">
+                            First Name: 
+                        </div>
+                        <input type="text" placeholder="First Name" name="firstname" class="text">
+                        <div class="label">
+                            Last Name: 
+                        </div>
+                        <input type="text" placeholder="Last Name" name="lastname" class="text">
+                        <div class="label">
+                            Username: 
+                        </div>
+                        <input type="text" placeholder="Username" name="username" class="text">
+                        <div class="label">
+                            Email: 
+                        </div>
+                        <input type="email" placeholder="Email" name="email" class="text">
+                        <input type="text" placeholder="Plant name" name="plantname">
+                        <div class="label">
+                            Password: 
+                        </div>
+                        <input type="password" placeholder="Password" name="password" class="text">
+                        <div class="label">
+                            Confirm Passoword: 
+                        </div>
+                        <input type="password" placeholder="Confirm Password" name="cpassword" class="text">
                     </div>
-                    <input type="text" placeholder="First Name" name="firstname" class="text">
-                    <div class="label">
-                        Last Name: 
-                    </div>
-                    <input type="text" placeholder="Last Name" name="lastname" class="text">
-                    <div class="label">
-                        Username: 
-                    </div>
-                    <input type="text" placeholder="Username" name="username" class="text">
-                    <div class="label">
-                        Email: 
-                    </div>
-                    <input type="email" placeholder="Email" name="email" class="text">
-                    <div class="label">
-                        Password: 
-                    </div>
-                    <input type="password" placeholder="Password" name="password" class="text">
-                    <div class="label">
-                        Confirm Passoword: 
-                    </div>
-                    <input type="password" placeholder="Confirm Password" name="cpassword" class="text">
-                </div>
-                <input type="submit" id='submit' value='Register'>
-                {% if error %}
-                    <span id="invalid">{{ error }}</span>
-                {% endif %}
-                <div class="link"><a href="{% url 'users:login' %}">Already have an account?</a></div>
-            </form>
+                    <input type="submit" id='submit' value='Register'>
+                    {% if error %}
+                        <span id="invalid">{{ error }}</span>
+                    {% endif %}
+                </form>
+            </div>
         </div>
     </section>
     

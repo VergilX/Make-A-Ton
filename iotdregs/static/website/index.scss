@@ -1,11 +1,15 @@
 // Variables
 $color1: #6cc408;
+$borderclr: rgb(218, 220, 224);
+$linkfont: 'Candara';
 
 // imports
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@800&family=Black+Ops+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@800&family=Black+Ops+One&family=Chewy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lobster&display=swap');
 
 body {
     width: 100%;
@@ -22,14 +26,6 @@ h1 {
 
 h2 {
     font-family: "Chewy";
-}
-
-.login {
-    display: float;
-    float: center;
-    position: sticky;
-    top: 50%;
-    margin: auto auto;
 }
 
 nav {
@@ -159,4 +155,197 @@ h3:hover{
     font-weight: 900
 }
 
+// Code for input
+.user {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    
+    // Code for login box
+    .login {
+        margin-top: 10%;
+        min-width: 50%;
 
+        .box {
+            margin: 0 10% 20% 10%;
+            padding: 5%;
+            border: 1px solid $borderclr;
+            border-radius: 10px;
+            background-color: $color1;
+            
+            
+            form > *{ 
+                display: block;
+                padding: 2% 0;
+                text-align: center;
+            }
+
+            #invalid {
+                font-family: $linkfont;
+                color: red;
+                font-size: 13px;
+            }
+
+            span {
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+                font-size: 25px;
+                text-decoration: underline;
+            }
+
+            label {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            
+            a {
+                text-decoration: none;
+                font-family: $linkfont;
+                color: rgb(0, 0, 0);
+                margin-top: 3%;
+                font-size: 15px;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            #submit {
+                margin: auto;
+                margin-top: 3px;
+                padding: 7px 15%;
+                border: 0.5px solid rgb(182, 182, 182);
+                border-radius: 3px;
+                font-family: 'sans-serif';
+                font-weight: bold;
+                color: white;
+                background-color: rgb(95, 95, 250);
+                cursor: pointer;
+            }
+            
+            #submit:hover {
+                border: 1px solid black;
+            }
+
+            .text {
+                padding: 5px;
+                margin-left: 2px;
+                border-radius: 5px;
+                border: 0.5px solid rgb(182, 182, 182);
+                min-width: 60%;
+                font-family: 'Lato';
+                font-size: 1.01em;
+                
+            }
+
+            .text:focus {
+                outline: none;
+                border: 0.5px solid grey;
+                box-shadow: 0 1px 6px 0 #171717;
+            }
+        }
+    }
+
+    // Code for register block
+    
+    .register {
+        margin-top: 5%;
+        min-width: 50%;
+
+        .box {
+            margin: 0 10% 20% 10%;
+            padding: 5%;
+            border: 1px solid $borderclr;
+            border-radius: 10px;
+            background-color: $color1;
+            
+            form > *{ 
+                display: block;
+                padding: 2% 0;
+                text-align: center;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: 30% auto;
+                grid-column-gap: 2%;
+                grid-row-gap: 5%;
+                margin-bottom: 10%;
+
+                .label {
+                    display: flex;
+                    text-align: right;
+                }
+            }
+
+            #invalid {
+                font-family: $linkfont;
+                color: red;
+                font-size: 13px;
+            }
+
+            span {
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+                font-size: 25px;
+                text-decoration: underline;
+            }
+
+            label {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            
+            a {
+                text-decoration: none;
+                font-family: $linkfont;
+                color: rgb(0, 0, 0);
+                margin-top: 3%;
+                font-size: 15px;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            #submit {
+                margin: auto;
+                margin-top: 3px;
+                padding: 7px 15%;
+                border: 0.5px solid rgb(182, 182, 182);
+                border-radius: 3px;
+                font-family: 'sans-serif';
+                font-weight: bold;
+                color: white;
+                background-color: rgb(95, 95, 250);
+                cursor: pointer;
+            }
+            
+            #submit:hover {
+                border: 1px solid black;
+            }
+
+            .text {
+                padding: 5px;
+                margin-left: 2px;
+                border-radius: 5px;
+                border: 0.5px solid rgb(182, 182, 182);
+                min-width: 60%;
+                // font-family: 'Lato';
+                font-size: 1.01em;
+                
+            }
+
+            .text:focus {
+                outline: none;
+                border: 0.5px solid grey;
+                box-shadow: 0 1px 6px 0 #171717;
+            }
+
+            i {
+                margin-left: -30px;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitter:wght@800&family=Black+Ops+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bitter:wght@800&family=Black+Ops+One&family=Chewy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Lobster&display=swap");
 body {
   width: 100%;
   margin: 0;
@@ -16,14 +18,6 @@ h1 {
 
 h2 {
   font-family: "Chewy";
-}
-
-.login {
-  display: float;
-  float: center;
-  position: sticky;
-  top: 50%;
-  margin: auto auto;
 }
 
 nav {
@@ -137,6 +131,166 @@ h2:hover {
 h3:hover {
   color: azure;
   font-weight: 900;
+}
+
+.user {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+.user .login {
+  margin-top: 10%;
+  min-width: 50%;
+}
+.user .login .box {
+  margin: 0 10% 20% 10%;
+  padding: 5%;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  background-color: #6cc408;
+}
+.user .login .box form > * {
+  display: block;
+  padding: 2% 0;
+  text-align: center;
+}
+.user .login .box #invalid {
+  font-family: "Candara";
+  color: red;
+  font-size: 13px;
+}
+.user .login .box span {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: underline;
+}
+.user .login .box label {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.user .login .box a {
+  text-decoration: none;
+  font-family: "Candara";
+  color: black;
+  margin-top: 3%;
+  font-size: 15px;
+}
+.user .login .box a:hover {
+  text-decoration: underline;
+}
+.user .login .box #submit {
+  margin: auto;
+  margin-top: 3px;
+  padding: 7px 15%;
+  border: 0.5px solid #b6b6b6;
+  border-radius: 3px;
+  font-family: "sans-serif";
+  font-weight: bold;
+  color: white;
+  background-color: #5f5ffa;
+  cursor: pointer;
+}
+.user .login .box #submit:hover {
+  border: 1px solid black;
+}
+.user .login .box .text {
+  padding: 5px;
+  margin-left: 2px;
+  border-radius: 5px;
+  border: 0.5px solid #b6b6b6;
+  min-width: 60%;
+  font-family: "Lato";
+  font-size: 1.01em;
+}
+.user .login .box .text:focus {
+  outline: none;
+  border: 0.5px solid grey;
+  box-shadow: 0 1px 6px 0 #171717;
+}
+.user .register {
+  margin-top: 5%;
+  min-width: 50%;
+}
+.user .register .box {
+  margin: 0 10% 20% 10%;
+  padding: 5%;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  background-color: #6cc408;
+}
+.user .register .box form > * {
+  display: block;
+  padding: 2% 0;
+  text-align: center;
+}
+.user .register .box .grid-container {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-column-gap: 2%;
+  grid-row-gap: 5%;
+  margin-bottom: 10%;
+}
+.user .register .box .grid-container .label {
+  display: flex;
+  text-align: right;
+}
+.user .register .box #invalid {
+  font-family: "Candara";
+  color: red;
+  font-size: 13px;
+}
+.user .register .box span {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: underline;
+}
+.user .register .box label {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.user .register .box a {
+  text-decoration: none;
+  font-family: "Candara";
+  color: black;
+  margin-top: 3%;
+  font-size: 15px;
+}
+.user .register .box a:hover {
+  text-decoration: underline;
+}
+.user .register .box #submit {
+  margin: auto;
+  margin-top: 3px;
+  padding: 7px 15%;
+  border: 0.5px solid #b6b6b6;
+  border-radius: 3px;
+  font-family: "sans-serif";
+  font-weight: bold;
+  color: white;
+  background-color: #5f5ffa;
+  cursor: pointer;
+}
+.user .register .box #submit:hover {
+  border: 1px solid black;
+}
+.user .register .box .text {
+  padding: 5px;
+  margin-left: 2px;
+  border-radius: 5px;
+  border: 0.5px solid #b6b6b6;
+  min-width: 60%;
+  font-size: 1.01em;
+}
+.user .register .box .text:focus {
+  outline: none;
+  border: 0.5px solid grey;
+  box-shadow: 0 1px 6px 0 #171717;
+}
+.user .register .box i {
+  margin-left: -30px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=index.css.map */
