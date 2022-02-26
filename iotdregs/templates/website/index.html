@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iot Dregs</title>
+    <link rel="stylesheet" href="{% static 'website/index.css' %}">
+    <script src="{% static 'website/javascript.js' %}"></script>
+</head>
+<body>
+    <div class="login">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password">
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="navbar">
+        <nav>
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+            <div class="preface">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#description">Project Description</a></li>
+                    <li><a href="#team">Contact Us</a></li>
+                    <li><a href="" id="login">LOGIN</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="hero" id="hero">
+        <div class="desc">
+            <h1>Our Aim</h1>
+            <div class="description">
+                <span>Recently, horticulture farming, including lack of manual labour, mineral and fertiliser needs of various plants. Climate change increase extreme and uncertain weather for horticulture cultivation. Farmers frequently face frequent damage to crops and decreasing in quantity and quality of plants. To tackle all these obstacles, we've designed an iot based monitoring system that'll keep us noted on the condition of the plants, without taking as much time and effort as we used to. </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-desc" id="description">
+        <div class="details">
+            <h1>Project Description</h1>
+            <p>Arduino, ESP32, and for the webpage done by using html,css, js, and Django. Hardware- moisture sensor and a water pump. 
+                Demo video for better understanding.
+            </p>
+            <div class="img">
+                <img src="" alt="">
+            </div>
+            <div class="about">
+                <h2>About</h2>
+                <span>This project is ded</span>
+            </div>
+            <div class="tech-stacks">
+                <h2>Techology Stacks</h2>
+                <span>Software</span>
+                <ul>
+                    <li>C++</li>
+                    <li>Python (Django)</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li></li>
+                </ul>
+                <span>Hardware</span>
+                <ul>
+                    <li>Arduino</li>
+                    <li>ESP32</li>
+                    <li>Moisture sensor</li>
+                    <li>Water pump</li>
+                </ul>
+            </div>
+        </div>
+        <div class="video">
+            <iframe src="" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+    <section class="team">
+        <h1>Our Team</h1>
+        <div class="our-team" id="team"> <!-- Make this a grid -->
+            <div class="team-member">
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <img src="" alt="">
+            </div>
+            <span>Adithya Biju</span>
+            <span>Alosh Denny</span>
+            <span>Anton Prince</span>
+            <span>Abhinand D Manoj</span>
+        </div>
+    </section>
+
+    <section class="user">
+        <div class="login">
+            <form action="{% url 'user' %}" method='post'>
+                {% csrf_token %}
+                <span id="login">Login</span>
+                <div class="username">
+                    <label for="username">Username: </label>
+                    <input type="text" placeholder="Username" name='username' class='text'>
+                </div>
+                <div class="password">
+                    <label for="password">Password: </label>
+                    <input type="password" placeholder="Password" name='password' class='text'>
+                </div>
+                {% if failed_msg %}
+                <span id="invalid">{{ failed_msg }}</span>
+                {% endif %}
+                <input type="submit" id='submit' value='Login'>
+            </form>
+        </div>
+        <div class="register">
+            <form action="{% url 'register' %}" method='post'>
+                {% csrf_token %}
+                <span id="login">Register</span>
+                <div class="grid-container">
+                    <div class="label">
+                        First Name: 
+                    </div>
+                    <input type="text" placeholder="First Name" name="firstname" class="text">
+                    <div class="label">
+                        Last Name: 
+                    </div>
+                    <input type="text" placeholder="Last Name" name="lastname" class="text">
+                    <div class="label">
+                        Username: 
+                    </div>
+                    <input type="text" placeholder="Username" name="username" class="text">
+                    <div class="label">
+                        Email: 
+                    </div>
+                    <input type="email" placeholder="Email" name="email" class="text">
+                    <div class="label">
+                        Password: 
+                    </div>
+                    <input type="password" placeholder="Password" name="password" class="text">
+                    <div class="label">
+                        Confirm Passoword: 
+                    </div>
+                    <input type="password" placeholder="Confirm Password" name="cpassword" class="text">
+                </div>
+                <input type="submit" id='submit' value='Register'>
+                {% if error %}
+                    <span id="invalid">{{ error }}</span>
+                {% endif %}
+                <div class="link"><a href="{% url 'users:login' %}">Already have an account?</a></div>
+            </form>
+        </div>
+    </section>
+    
+    <div id="footer">
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <div class="info">
+            <div class="links">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#description">Project Description</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                </ul>
+                <ul>
+                    <li><a href="tel: 9778007610">Phone: +91 977 800 7610</a></li> 
+                    <li><a href="mailto: iotsolutions@gmail.com">Email: iotsolutions@gmail.com</a></li>
+                </ul>
+                <div class="social">
+                    <div class="logos">
+                        <a href=""><img src="" alt=""></a>
+                        <a href=""><img src="" alt=""></a>
+                        <a href=""><img src="" alt=""></a>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
