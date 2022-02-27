@@ -20,7 +20,12 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#description">Project Description</a></li>
                     <li><a href="#team">Contact Us</a></li>
-                    <li><a href="#user" id="login">LOGIN</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'user' %}">{{ request.user.username }}</a></li>
+                        <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                    {% else %}
+                        <li><a href="#user" id="login">LOGIN</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -38,15 +43,9 @@
     <div class="project-desc" id="description">
         <div class="details">
             <h1>Project Description</h1>
-            <p>Arduino, ESP32, and for the webpage done by using html,css, js, and Django. Hardware- moisture sensor and a water pump. 
-                Demo video for better understanding.
-            </p>
-            <div class="img">
-                <img src="" alt="">
-            </div>
             <div class="about">
                 <h2>About</h2>
-                <span>This project is ded</span>
+                <span>This is a project that aims at using the most compact and easily affordable technology to increase efficiency and productivity. In this project, we have used the Arduino, ESP32 for the functioning of the pump along with the sensing. The user is able to monitor the growing conditions of the plant using the website. So, in simple words, it is a simple device that automates horticulture farming.</span>
             </div>
             <div class="tech-stacks">
                 <h2>Techology Stacks</h2>
@@ -56,8 +55,6 @@
                     <li>Python (Django)</li>
                     <li>HTML</li>
                     <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li></li>
                 </ul>
                 <span>Hardware</span>
                 <ul>
@@ -95,67 +92,72 @@
         </div>
     </section>
 
-    <section class="user" id="user">
-        <div class="login">
-            <div class="box">
-                <form action="{% url 'user' %}" method='post'>
-                    {% csrf_token %}
-                    <span id="login">Login</span>
-                    <div class="username">
-                        <label for="username">Username: </label>
-                        <input type="text" placeholder="Username" name='username' class='text'>
-                    </div>
-                    <div class="password">
-                        <label for="password">Password: </label>
-                        <input type="password" placeholder="Password" name='password' class='text'>
-                    </div>
-                    {% if failed_msg %}
-                    <span id="invalid">{{ failed_msg }}</span>
-                    {% endif %}
-                    <input type="submit" id='submit' value='Login'>
-                </form>
+    {% if not request.user.is_authenticated %}
+        <section class="user" id="user">
+            <div class="login">
+                <div class="box">
+                    <form action="{% url 'user' %}" method='post'>
+                        {% csrf_token %}
+                        <span id="login">Login</span>
+                        <div class="username">
+                            <label for="username">Username: </label>
+                            <input type="text" placeholder="Username" name='username' class='text'>
+                        </div>
+                        <div class="password">
+                            <label for="password">Password: </label>
+                            <input type="password" placeholder="Password" name='password' class='text'>
+                        </div>
+                        {% if failed_msg %}
+                        <span id="invalid">{{ failed_msg }}</span>
+                        {% endif %}
+                        <input type="submit" id='submit' value='Login'>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="register">
-            <div class="box">
-                <form action="{% url 'register' %}" method='post'>
-                    {% csrf_token %}
-                    <span id="login">Register</span>
-                    <div class="grid-container">
-                        <div class="label">
-                            First Name: 
+            <div class="register">
+                <div class="box">
+                    <form action="{% url 'register' %}" method='post'>
+                        {% csrf_token %}
+                        <span id="login">Register</span>
+                        <div class="grid-container">
+                            <div class="label">
+                                First Name: 
+                            </div>
+                            <input type="text" placeholder="First Name" name="firstname" class="text">
+                            <div class="label">
+                                Last Name: 
+                            </div>
+                            <input type="text" placeholder="Last Name" name="lastname" class="text">
+                            <div class="label">
+                                Username: 
+                            </div>
+                            <input type="text" placeholder="Username" name="username" class="text">
+                            <div class="label">
+                                Email: 
+                            </div>
+                            <input type="email" placeholder="Email" name="email" class="text">
+                            <div class="label">
+                                Plant Name:
+                            </div>
+                            <input type="text" placeholder="Plant name" name="plantname" class="text">
+                            <div class="label">
+                                Password: 
+                            </div>
+                            <input type="password" placeholder="Password" name="password" class="text">
+                            <div class="label">
+                                Confirm Passoword: 
+                            </div>
+                            <input type="password" placeholder="Confirm Password" name="cpassword" class="text">
                         </div>
-                        <input type="text" placeholder="First Name" name="firstname" class="text">
-                        <div class="label">
-                            Last Name: 
-                        </div>
-                        <input type="text" placeholder="Last Name" name="lastname" class="text">
-                        <div class="label">
-                            Username: 
-                        </div>
-                        <input type="text" placeholder="Username" name="username" class="text">
-                        <div class="label">
-                            Email: 
-                        </div>
-                        <input type="email" placeholder="Email" name="email" class="text">
-                        <input type="text" placeholder="Plant name" name="plantname">
-                        <div class="label">
-                            Password: 
-                        </div>
-                        <input type="password" placeholder="Password" name="password" class="text">
-                        <div class="label">
-                            Confirm Passoword: 
-                        </div>
-                        <input type="password" placeholder="Confirm Password" name="cpassword" class="text">
-                    </div>
-                    <input type="submit" id='submit' value='Register'>
-                    {% if error %}
-                        <span id="invalid">{{ error }}</span>
-                    {% endif %}
-                </form>
+                        <input type="submit" id='submit' value='Register'>
+                        {% if error %}
+                            <span id="invalid">{{ error }}</span>
+                        {% endif %}
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
     
     <div id="footer">
         <div class="logo">

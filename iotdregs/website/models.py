@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 class Plant(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="alarms")
     name = models.CharField(max_length=32)
-    plantname = models.ForeignKey(User, on_delete=models.CASCADE, related_name="plantname")
 
     def __str__(self):
-        return f"User '{self.name}'"
+        return f"Plant '{self.name}'"

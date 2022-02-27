@@ -3,55 +3,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'website/user.css' %}">
-    <title>User</title>
-</head>
-<body>
-<h1>WELCOME {{ request.user.name }}</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
+    <title>{{ request.user.username }}</title>
+    </head>
+    <body>
+        <div class="top">
+            <button style="font-size: 20px;"><a href="{% url 'index' %}">Go back</a></button>
+        </div>
+        <h1 class="welcome">WELCOME {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+        <div id="image">
+            <div class="hello">
+                <div class="info"> <div class="box">User Name: {{ request.user.username }}</div></div>
+                
+                <div class="info"> <div class="box">Crop Name: {{ plantname }}</div></div>
+    
+                <div class="info">  <div class="box">Moisture Content: </div> </div>
+                
+                <div class="info"> <div class="box">Lights Active: </div></div> 
+            </div>
+        </div>
+    </body>
 </html>

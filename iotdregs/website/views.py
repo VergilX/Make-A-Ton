@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as loginuser, logout as logoutuser
+from .models import Plant
 
 # Create your views here.
 def index(request):
@@ -50,25 +51,28 @@ def register(request):
                 lastname = request.POST["lastname"]
                 email = request.POST["email"]
                 plantname = request.POST["plantname"]
-                
+
                 # Creating user
                 user = User.objects.create_user(username=username,
                                                 password=passwd,
                                                 first_name=firstname,
                                                 last_name=lastname,
-                                                email=email,
-                                                plantname=plantname)
-                
+                                                email=email)
+
+                # Assigning plant
+                plant = Plant(user=user, name=plantname)
+                plant.save()
+
                 # Logging in the user
                 loginuser(request, user)
 
                 return render(request, 'website/user.html', {
-                    'plantname': user.plantname,
+                    'plantname': plant.name,
                 })
 
     elif request.user.is_authenticated:
         return HttpResponseRedirect(reverse("user"))
-    return render(request, 'website/index.html')
+    return render(request, 'website/user.html')
 
 def logout(request):
     LOGGED_IN = False
@@ -79,6 +83,12 @@ def user(request):
     ''' Display user webpage '''
 
     if request.method == 'POST':
+        print(request.POST)
+        if request.POST.get("moisture") is not None:
+            moisture = request.POST.get("moisture")
+            return render(request, "website/user.html", {
+                'data': moisture,
+            })
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
@@ -86,11 +96,11 @@ def user(request):
         # Checking if entered credentials are right
         if user is not None:
             loginuser(request, user)
-            # Getting user alarms
-            plant = request.user.plantname
+            plant = Plant.objects.get(user=request.user)
             return render(request, 'website/user.html', {
-                'plantname': plant,
+                'plantname': plant.name,
             })
+        print("hi there")
         return render(request, "website/index.html", {
             'failed_msg': 'Invalid Credentials'
         })
@@ -99,8 +109,8 @@ def user(request):
     elif not request.user.is_authenticated:
         return render(request, "website/index.html")
     else:
-        # Getting user alarms
-        plant = request.user.plantname
+        # Getting user plants
+        plant = Plant.objects.get(user=request.user)
         return render(request, 'website/user.html', {
-            'plantname': plant,
+            'plantname': plant.name,
         })

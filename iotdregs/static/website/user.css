@@ -1,3 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@800&family=Black+Ops+One&family=Chewy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+
+.top{
+    text-align: right;
+    padding: 20px;
+}
+
+button{
+    border-radius: 10px;
+    padding: 10px;   
+}
+
+h1 {
+    font-family: 'Bitter';
+}
+
+a{
+    text-decoration: none;
+   color: black;
+}
+
+.second{
+    text-align: center;
+    
+}
+
+.welcome{
+    text-align: center;
+    
+}
+
+.box{
+    display: block;
+    background-color: #6cc408;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 3%;
+    margin-left: 45%;
+    box-shadow: 3px 3px 4px black;
+    border-radius: 10px;
+    width: 300px;
+
+}
+
+.info {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Ubuntu';
+}
+
+#image{
+    background-image: url(https://images.unsplash.com/photo-1598940603846-a1edd0ef2574?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80);
+    height: 400px;
+    width: 100%;
+    border-radius: 20px; 
+    
+    
+}
+
+.hello {
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto;
+
+}
+
+/*  nthada? font ano*/
+
+/* Ithentha varaathe */
 
 
-/*# sourceMappingURL=user.css.map */
+
+
+
+
+
+
+
+
+
+
+
+
