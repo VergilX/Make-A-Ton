@@ -28,3 +28,8 @@
 > - pkg-resources      (0.0.0)
 > - setuptools         (44.0.0)
 > - sqlparse           (0.4.2)
+
+## Update
+This project has a successor: Garduino v2.0  
+Devfolio link: [devfolio.co/projects/garduino-v-adb8](https://devfolio.co/projects/garduino-v-abd8)  
+Github link: [github.com/aloshdenny/Garduino-v2.0](https://github.com/aloshdenny/Garduino-v2.0)  
